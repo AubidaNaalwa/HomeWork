@@ -47,7 +47,7 @@ class DictionaryStore {
         let count = 0;
         this.Dictionary.forEach(value => {
             for (let i = 0; i < value.word.length-1; i++) {
-                if (value.word.indexOf(value.word[i]) !== value.word.indexOf(value.word[i+1])) {
+                if (value.word.indexOf(value.word[i]) === value.word.indexOf(value.word[i+1])) {
                     return count++
                 }
             }
