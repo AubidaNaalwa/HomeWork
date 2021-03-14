@@ -17,9 +17,6 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -27,6 +24,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/', api)
 
 const port = 8080
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 app.listen((process.env.PORT || port), function () {
