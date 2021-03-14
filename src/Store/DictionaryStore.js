@@ -46,12 +46,11 @@ class DictionaryStore {
     numberOfWordsRepeatedLetter = () => {
         let count = 0;
         this.Dictionary.forEach(value => {
-            for (let i = 0; i < value.word.length; i++) {
-                if (value.word.indexOf(value.word[i]) !== value.word.lastIndexOf(value.word[i])) {
+            for (let i = 0; i < value.word.length-1; i++) {
+                if (value.word.indexOf(value.word[i]) !== value.word.indexOf(value.word[i+1])) {
                     return count++
                 }
             }
-
         })
         return count
     }
