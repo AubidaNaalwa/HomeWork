@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
+import { observer, inject } from 'mobx-react'
+
+import Home from './Components/Home'
+import AddNewWord from './Components/AddNewWord'
+import EndingLetter from './Components/EndingLetter'
+import RepeatedLetter from './Components/RepeatedLetter'
+import LettersIncluded from './Components/LettersIncluded'
+import StartingLetter from './Components/StartingLetter'
+import NavBar from './NavBar/NavBar'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />
+        <Route exact path='/AddNewWords' render={()=><AddNewWord/>}/>
+        <Route exact path='/SearchEndingLetters' render={() => <EndingLetter/>} />
+        <Route exact path='/SearchRepeatedLetters' render={() =><RepeatedLetter/>}/>
+        <Route exact path='/SearchIncludingLetters' render={() => <LettersIncluded/>} />
+        <Route exact path='/SearchStartingLetters' render={() => <StartingLetter/>} />
+        <Route exact path='/' render={() =><Home/>} />
+      </div>
+    </Router>
   );
 }
 
-export default App;
+export default inject('dictionaryStore')(observer(App));
