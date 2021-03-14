@@ -7,7 +7,7 @@ function NavBar(props) {
   return (
     <div id="nav">
     <ul>
-        <li><Link className="active" href="/">Home</Link></li>
+        <li><Link className="active" to="/">Home</Link></li>
         <li><Link to="/AddNewWords">Add New Words</Link></li>
         <li><Link to="/SearchStartingLetters">Starting Letters</Link></li>
         <li><Link to="/SearchEndingLetters">Ending Letters</Link></li>
