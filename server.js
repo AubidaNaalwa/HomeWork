@@ -17,6 +17,9 @@ app.use(function(req, res, next) {
     next()
 })
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
