@@ -1,18 +1,18 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react'
+import { Link } from 'react-router-dom'
+
 
 function NavBar(props) {
   return (
     <div id="nav">
     <ul>
-        <li><a className="active" href="/">Home</a></li>
-        <li><a href="/AddNewWords">Add New Words</a></li>
-        <li><a href="/SearchStartingLetters">Starting Letters</a></li>
-        <li><a href="/SearchEndingLetters">Ending Letters</a></li>
-        
-        <li><a href="/SearchIncludingLetters">Including Letters</a></li>
-
-        <li><a href="/SearchRepeatedLetters">Repeated Letters</a></li>
+        <li><Link className="active" href="/">Home</Link></li>
+        <li><Link to="/AddNewWords">Add New Words</Link></li>
+        <li><Link to="/SearchStartingLetters">Starting Letters</Link></li>
+        <li><Link to="/SearchEndingLetters">Ending Letters</Link></li>
+        <li><Link to="/SearchIncludingLetters">Including Letters</Link></li>
+        <li><Link to="/SearchRepeatedLetters">Repeated Letters</Link></li>
         <li className="right">MyDictionary</li>
     </ul>
 </div>
